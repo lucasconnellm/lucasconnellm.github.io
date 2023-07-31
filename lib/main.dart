@@ -1,4 +1,17 @@
+import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri githubUri = Uri(
+  scheme: 'https',
+  host: 'github.com',
+  path: 'lucasconnellm',
+);
+final Uri linkedinUri = Uri(
+  scheme: 'https',
+  host: 'www.linkedin.com',
+  path: 'in/lucas-connell-uga',
+);
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +45,7 @@ class MyAppState extends State<MyApp> {
       ),
       themeMode: currentTheme,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 
@@ -62,30 +76,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeMode targetThemeMode;
+    MyAppState currentAppState = MyApp.of(context);
+    if (currentAppState.currentTheme == ThemeMode.system) {
+      var systemBrightness = MediaQuery.of(context).platformBrightness;
+      if (systemBrightness == Brightness.dark) {
+        targetThemeMode = ThemeMode.light;
+      } else {
+        targetThemeMode = ThemeMode.dark;
+      }
+    } else if (currentAppState.currentTheme == ThemeMode.dark) {
+      targetThemeMode = ThemeMode.light;
+    } else {
+      targetThemeMode = ThemeMode.dark;
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
         actions: [
           IconButton(
-            icon: const Icon(Icons.brightness_4),
+              onPressed: () async {
+                await launchUrl(githubUri);
+              },
+              icon: const Icon(FeatherIcons.github)),
+          IconButton(
+              onPressed: () async {
+                await launchUrl(linkedinUri);
+              },
+              icon: const Icon(FeatherIcons.linkedin)),
+          IconButton(
+            icon: targetThemeMode == ThemeMode.light
+                ? const Icon(Icons.light_mode_rounded)
+                : const Icon(Icons.dark_mode_rounded),
             onPressed: () {
-              ThemeMode newThemeMode;
-              MyAppState currentAppState = MyApp.of(context);
-              if (currentAppState.currentTheme == ThemeMode.system) {
-                var systemBrightness =
-                    MediaQuery.of(context).platformBrightness;
-                if (systemBrightness == Brightness.dark) {
-                  newThemeMode = ThemeMode.light;
-                } else {
-                  newThemeMode = ThemeMode.dark;
-                }
-              } else if (currentAppState.currentTheme == ThemeMode.dark) {
-                newThemeMode = ThemeMode.light;
-              } else {
-                newThemeMode = ThemeMode.dark;
-              }
-              currentAppState.switchTheme(newThemeMode);
+              currentAppState.switchTheme(targetThemeMode);
             },
           ),
         ],
