@@ -34,7 +34,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lucas Connell',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -44,7 +44,7 @@ class MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       themeMode: currentTheme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Lucas McCord Connell'),
       debugShowCheckedModeBanner: false,
     );
   }
