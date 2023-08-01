@@ -93,6 +93,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         actions: [
           IconButton(
+            onPressed: () async {
+              await launchUrl(Uri(
+                scheme: 'mailto',
+                path: 'hello@lucasmc.com',
+              ));
+            },
+            icon: const Icon(FeatherIcons.mail),
+          ),
+          IconButton(
               onPressed: () async {
                 await launchUrl(githubUri);
               },
