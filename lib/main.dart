@@ -120,14 +120,14 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(
-                  width: 100,
+                  width: 150,
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: UserHeadshot(),
                   ),
                 ),
                 SizedBox(
-                  width: min(MediaQuery.of(context).size.width - 110, 500),
+                  width: min(MediaQuery.of(context).size.width - 160, 500),
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
