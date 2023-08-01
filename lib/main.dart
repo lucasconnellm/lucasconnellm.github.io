@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:lucasconnellm/components/headshot.dart';
@@ -125,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 110,
+                  width: min(MediaQuery.of(context).size.width - 110, 500),
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(
