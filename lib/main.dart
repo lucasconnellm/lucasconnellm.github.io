@@ -110,37 +110,40 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: UserHeadshot(),
+                const SizedBox(
+                  width: 100,
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: UserHeadshot(),
+                  ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          'Godspeed, traveler.',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 110,
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            'Godspeed, traveler.',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 8.0, left: 4.0),
-                        child: SizedBox(
-                          width: 500,
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8.0, left: 4.0),
                           child: Text(
                             "My name's Lucas! I'm a software engineer with a background in mathematics."
                             " I graduated from UGA in 2019 with a B.S. in Mathematics and a certificate of"
@@ -148,19 +151,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             " full-stack engineer at Ryan, LLC in Atlanta, GA.",
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 8.0, left: 4.0),
-                        child: SizedBox(
-                          width: 500,
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8.0, left: 4.0),
                           child: Text(
                             "My strongest languages are Python and JavaScript/TypeScript, but I'm also"
                             " proficient in Golang and Flutter. My technical abilities include SQL, Docker,"
                             " AWS, and Firebase.",
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
