@@ -47,7 +47,7 @@ class MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       themeMode: currentTheme,
-      home: const MyHomePage(title: 'Lucas McCord Connell'),
+      home: const MyHomePage(title: 'Lucas'),
       debugShowCheckedModeBanner: false,
     );
   }
