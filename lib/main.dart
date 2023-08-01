@@ -1,5 +1,6 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:lucasconnellm/components/headshot.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri githubUri = Uri(
@@ -66,13 +67,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,24 +110,63 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: UserHeadshot(),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8.0),
+                        child: Text(
+                          'Godspeed, traveler.',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8.0, left: 4.0),
+                        child: SizedBox(
+                          width: 500,
+                          child: Text(
+                            "My name's Lucas! I'm a software engineer with a background in mathematics."
+                            " I graduated from UGA in 2019 with a B.S. in Mathematics and a certificate of"
+                            " computing from the Computer Science department. I'm currently working as a"
+                            " full-stack engineer at Ryan, LLC in Atlanta, GA.",
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8.0, left: 4.0),
+                        child: SizedBox(
+                          width: 500,
+                          child: Text(
+                            "My strongest languages are Python and JavaScript/TypeScript, but I'm also"
+                            " proficient in Golang and Flutter. My technical abilities include SQL, Docker,"
+                            " AWS, and Firebase.",
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
